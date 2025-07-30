@@ -39,8 +39,14 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false, //remove the back button
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: const Text("Dashboard"),
-        centerTitle: true,
+        title:  Text("Dashboard",
+        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+      color: Theme.of(context).colorScheme.primary,
+          fontWeight: FontWeight.bold,
+        ),
+
+      ),
+      centerTitle: true,
       ),
       extendBodyBehindAppBar: true,
       body: Container(

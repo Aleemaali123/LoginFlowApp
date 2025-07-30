@@ -24,7 +24,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/images/dashboard.png"  # 🖼️ Your icon image
+  image_path: "assets/images/dashboard.png"
 
 flutter:
   uses-material-design: true

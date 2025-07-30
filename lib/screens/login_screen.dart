@@ -114,49 +114,56 @@ class _LoginPageState extends State<LoginPage> {
                                   child: CircularProgressIndicator()))
                           : SizedBox(
                               height: 48,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 2,
-                                  textStyle: theme.textTheme.labelLarge,
-                                ),
-                                onPressed: () async {
-                                  if (_formKey.currentState!.validate()) {
-                                    setState(() {
-                                      isLoading = true;
-                                    });
-                                    try {
-                                      final success =
-                                          await Provider.of<AuthProvider>(
-                                                  context,
-                                                  listen: false)
-                                              .login(_usernameController.text,
-                                                  _passwordController.text);
-                                      if (success) {
-                                        Navigator.pushAndRemoveUntil(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (_) =>
-                                                  const BottomBar()),
-                                          (route) => false,
-                                        );
-                                      } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          const SnackBar(
-                                              content: Text(
-                                                  'Invalid username or password')),
-                                        );
-                                      }
-                                    } finally {
-                                      setState(() {
-                                        isLoading = false;
-                                      });
-                                    }
-                                  }
-                                },
-                                child: const Text('Login'),
-                              ),
+                       child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF7C4DFF), // Or your preferred purple
+                            foregroundColor: Colors.white, // Ensures white text
+                            elevation: 2,
+                            textStyle: theme.textTheme.labelLarge,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
                             ),
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          ),
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              try {
+                                final success = await Provider.of<AuthProvider>(
+                                  context,
+                                  listen: false,
+                                ).login(
+                                  _usernameController.text,
+                                  _passwordController.text,
+                                );
+                                if (success) {
+                                  Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(builder: (_) => const BottomBar()),
+                                        (route) => false,
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('Invalid username or password')),
+                                  );
+                                }
+                              } finally {
+                                setState(() {
+                                  isLoading = false;
+                                });
+                              }
+                            }
+                          },
+                          child: const Text('Login',
+                          style: TextStyle(
+                            fontSize: 12
+                          ),
+                          ),
+                        ),
+
+                      ),
                       const SizedBox(height: 16),
                       Center(
                         child: IconButton(
