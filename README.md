@@ -1,16 +1,55 @@
-# machinetest
 
-A new Flutter project.
+# machinetest - Flutter Authentication App
 
-## Getting Started
+This is a simple Flutter authentication app built as part of a machine test. It includes:
 
-This project is a starting point for a Flutter application.
+- Login with hardcoded credentials
+- Session persistence using `SharedPreferences`
+- Biometric authentication (fingerprint)
+- Logout with proper session management
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🧑‍💻 Dummy Login Credentials
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Username | Password     |
+|----------|--------------|
+| admin    | admin123     |
+| user     | user123      |
+
+---
+
+## 📸 Screenshots
+
+> Add screenshots of:
+- Splash screen
+- Login screen
+- Biometric prompt
+- Home/dashboard screen
+
+---
+
+## 🧩 Dependencies Used
+
+| Package                | Purpose                                      |
+|------------------------|----------------------------------------------|
+| `provider`             | State management for authentication          |
+| `shared_preferences`   | Persistent session storage                   |
+| `local_auth`           | Biometric login (fingerprint/face)          |
+| `flutter_launcher_icons` | To generate app icons for iOS/Android    |
+
+---
+
+## 🛠️ Build Instructions
+
+1. Clone the repo
+2. Run `flutter pub get`
+3. Run `flutter run` or `flutter build apk`
+
+
+## ⏱️ Time Spent
+
+- Total: ~5-6 hours
+- UI setup, auth integration, testing and documentation
+
+---
